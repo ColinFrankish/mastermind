@@ -3,6 +3,7 @@ require File.join(File.dirname(__FILE__), "/../spec_helper")
 module Mastermind
   describe Game do
     context "starting up" do
+      # when using the before(:each) need to use instance variables!
       before(:each) do
         @messenger = double("messenger").as_null_object
         @game = Game.new(@messenger)
