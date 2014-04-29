@@ -8,6 +8,6 @@ When(/^I start a new game$/) do
   game.start
 end
 
-Then(/^the game should say "(.*?)"$/) do |arg1|
-  @messenger.string.split("\n").should include(message)
+Then(/^the game should say "(.*?)"$/) do |message|
+  expect(@messenger.string.split("\n")).to include(message)
 end
