@@ -12,19 +12,31 @@ Feature: code-breaker submits guess
 
   Scenario Outline: submit guess
     Given the secret code is "<code>"
-    When I guess "<guess>""
+    When I guess "<guess>"
     Then the mark shoud be "<mark>"
 
   Scenarios: all colors correct
-    | code    | guess   | mark |
-    | r g y c | r g y c | bbbb |
-    | r g y c | r g c y | bbww | 
-    | r g y c | y r g c | bwww | 
-    | r g y c | c r g y | wwww |
+    | code | guess | mark |
+    | rgyc | rgyc  | bbbb |
+    | rgyc | rgcy  | bbww | 
+    | rgyc | yrgc  | bwww | 
+    | rgyc | crgy  | wwww |
 
   Scenarios: three colors correct 
     | code | guess | mark | 
     |rgyc  |wgyc   | bbb  | 
     |rgyc  |wryc   | bbw  | 
-    |rgyc  |wrgc   |bww | 
-    |rgyc  |wrgy   |www |
+    |rgyc  |wrgc   | bww  | 
+    |rgyc  |wrgy   | www  |
+
+  Scenarios: two colors correct
+    | code | guess | mark |
+    |rgyc  |wgwc   | bb   | 
+    |rgyc  |wrwc   | bw   | 
+    |rgyc  |gwcw   | ww   |
+
+  Scenarios: 1 color correct
+    | code | guess | mark | 
+    |rgyc  |rwww   |b     | 
+    |rgyc  |wwrw   |w     |
+
