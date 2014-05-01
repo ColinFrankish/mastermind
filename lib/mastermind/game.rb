@@ -5,6 +5,7 @@ module Mastermind
     end
 
     def start(code=nil)
+      @code = code
       @messenger.puts "Welcome to Mastermind!"
       @messenger.puts "Enter guess:"
     end

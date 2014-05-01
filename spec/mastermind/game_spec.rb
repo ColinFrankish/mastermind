@@ -27,6 +27,15 @@ module Mastermind
           game.guess(%w[rgyc])
         end
       end
+      context "with all four colors and two in the correct places" do
+        it "should mark the guess with bbww" do
+          messenger = double("messenger").as_null_object
+          game = Game.new(messenger)
+          game.start(%w[rgyc])
+          messenger.should_receive(:puts).with("bbww")
+          game.guess(%w[rgcy])
+        end
+      end
     end
   end
 end
