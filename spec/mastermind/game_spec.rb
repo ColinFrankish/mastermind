@@ -15,7 +15,18 @@ module Mastermind
       it "should prompt user for first guess" do
         @messenger.should_receive(:puts).with("Enter guess:")
         @game.start(%w[rgyc])
-      end
+      end      
     end    
+    context "marking a guess"  do
+      context "with all four colors in the correct places" do
+        it "should mark the guess with a bbbb" do
+          messenger = double("messenger").as_null_object
+          game = Game.new(messenger)
+          game.start(%w[rgyc])
+          messenger.should_receive(:puts).with("bbbb")
+          game.guess(%w[rgyc])
+        end
+      end
+    end
   end
 end
