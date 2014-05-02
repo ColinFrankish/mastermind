@@ -13,7 +13,7 @@ Feature: code-breaker submits guess
   Scenario Outline: submit guess
     Given the secret code is "<code>"
     When I guess "<guess>"
-    Then the mark shoud be "<mark>"
+    Then the mark should be "<mark>"
 
   Scenarios: all colors correct
     | code | guess | mark |
@@ -37,6 +37,6 @@ Feature: code-breaker submits guess
 
   Scenarios: 1 color correct
     | code | guess | mark | 
-    |rgyc  |rwww   |b     | 
-    |rgyc  |wwrw   |w     |
+    |rgyc  | rwww  | b    | 
+    |rgyc  | wwrw  | w    |
 

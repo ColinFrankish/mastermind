@@ -4,8 +4,8 @@ end
 
 When(/^I start a new game "(.*?)"$/) do |code|
   @messenger = StringIO.new
-  @game = Mastermind::Game.new(@messenger) 
-  @game.start(code)
+  game = Mastermind::Game.new(@messenger) 
+  game.start(%w[r g y c])
 end
 
 Then(/^the game should say "(.*?)"$/) do |message|
@@ -21,6 +21,6 @@ end
 When(/^I guess "(.*?)"$/) do |code|
   @game.guess(code.split)
 end
-Then(/^the mark shoud be "(.*?)"$/) do |mark|
+Then(/^the mark should be "(.*?)"$/) do |mark|
   expect(@messenger.string.split("\n")).to include(mark)
 end
